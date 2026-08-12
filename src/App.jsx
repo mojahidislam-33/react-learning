@@ -1,44 +1,28 @@
-import "./App.css";
+function ProductCard({ title, price, image }) {
+  return (
+    <div className="product-card">
+      <img src={image} alt={title} />
 
+      <h2>{title}</h2>
 
-function App(){
+      <p>${price}</p>
 
-  const name="mojahid";
-  const age=24;
-
-  const fruits = ["Apple", "Banana", "Mango"];
-
-  let status;
-  if(age>18){
-    status="Aduilt";
-  }
-  else{
-    status="Minor";
-  }
-  
-  return(
-   <div>
-        <h2>Name: {name}</h2>
-        <p>Age: {age}</p>
-        <h2>{status} </h2>
-
-        <ul>
-          {fruits.map((fruit)=> (
-              <li>{fruit} </li>
-          ))}
-        </ul>
-        
-        {age>18? <h2>Aduilt</h2> :<h2>Minor</h2> }
-
-        <div className="greet">
-          <h1>Hello Everyone</h1>
-        </div>
-   </div>
-  )
+      <button>Add to Cart</button>
+    </div>
+  );
 }
 
-
-
-
+function App() {
+  return (
+    <div>
+   
+      <ProductCard
+        title="Headphone"
+        price={100}
+        image="/headphone.jpg"
+      />
+    </div>
+  );
+}
 
 export default App;
