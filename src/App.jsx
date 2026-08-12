@@ -1,37 +1,38 @@
 import { useState } from "react";
+function App() {
+  
+  function handleClick(event){
+     console.log("Button Click")
+  }
 
-function App(){
+  function handleChange(event){
+    console.log(event.target.value)
 
-  const [count,setCount]=useState(0);
-  const [isLoggedIn,setLoggedIn]=useState(false);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log("Form Submited");
+  }
 
   return (
     <div>
-      <h2>Count {count}</h2>
-      <button onClick={()=>setCount(count+5)}>
-        Increase
+      <button onClick={handleClick}>
+        Clicked Me
       </button>
 
-      <button onClick={()=>setCount(count-5)}>
-        Decrease
-      </button>
+      <input type="text" onChange={handleChange} />
 
-      <button onClick={()=>setCount(0)}>
-        Reset
-      </button>
-       
-       
-      <h2>
-        {isLoggedIn? "welcome!" : "Please Login"}
-      </h2>
-
-      <button onClick={()=>setLoggedIn(!isLoggedIn)}>
-        {isLoggedIn ? "Logout" : "Login"}
-      </button>
-
+      <form onSubmit={handleSubmit}>
+        <input type="text" />
+        <button type="submit">
+          Submit
+        </button>
+      </form>
     </div>
-  )
+
+    
+  );
 }
 
 export default App;
-
