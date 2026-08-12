@@ -1,28 +1,37 @@
-function ProductCard({ title, price, image }) {
-  return (
-    <div className="product-card">
-      <img src={image} alt={title} />
+import { useState } from "react";
 
-      <h2>{title}</h2>
+function App(){
 
-      <p>${price}</p>
+  const [count,setCount]=useState(0);
+  const [isLoggedIn,setLoggedIn]=useState(false);
 
-      <button>Add to Cart</button>
-    </div>
-  );
-}
-
-function App() {
   return (
     <div>
-   
-      <ProductCard
-        title="Headphone"
-        price={100}
-        image="/headphone.jpg"
-      />
+      <h2>Count {count}</h2>
+      <button onClick={()=>setCount(count+5)}>
+        Increase
+      </button>
+
+      <button onClick={()=>setCount(count-5)}>
+        Decrease
+      </button>
+
+      <button onClick={()=>setCount(0)}>
+        Reset
+      </button>
+       
+       
+      <h2>
+        {isLoggedIn? "welcome!" : "Please Login"}
+      </h2>
+
+      <button onClick={()=>setLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? "Logout" : "Login"}
+      </button>
+
     </div>
-  );
+  )
 }
 
 export default App;
+
