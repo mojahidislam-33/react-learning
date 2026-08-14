@@ -27,7 +27,7 @@ function LoginForm(){
                 <div>
                     <label>Email:</label>
                     <input
-                      type="text" 
+                      type="email" 
                       value={email}
                       onChange={(event)=>setEmail(event.target.value)}
                       placeholder="enter email.."
@@ -39,7 +39,7 @@ function LoginForm(){
                 <div>
                     <label>Password:</label>
                     <input 
-                    type="text" 
+                    type="password" 
                     value={password}
                     onChange={(event)=>setPassword(event.target.value)}
                     placeholder="enter password.."
