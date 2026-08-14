@@ -1,30 +1,31 @@
-import { useState, useEffect} from "react";
+import { useEffect, useState } from "react";
 
-function UseEffect(){
-    const [count, setCount] = useState(0);
+function UseEffect() {
+  const [isRunning, setIsRunning] = useState(true);
 
-    useEffect(()=>{
-        console.log("component rendered");
-       
-    });
+  useEffect(() => {
+    if (!isRunning) {
+      return;
+    }
 
-    useEffect(()=>{
-         console.log("Hello from useEffect");
-    },[])
+    const timer = setInterval(() => {
+      console.log("Timer running...");
+    }, 1000);
 
-    useEffect(() => {
-         console.log("Count:", count);
-    }, [count]);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [isRunning]);
 
-    return (
-        <div>
-            <h2>Count: {count}</h2>
-            <button onClick={() => setCount(count + 1)}>
-               Increase
-            </button>
-        </div>
-    
-    );
+  return (
+    <div>
+      <h1>useEffect Timer</h1>
+
+      <button onClick={() => setIsRunning(!isRunning)}>
+        {isRunning ? "Stop Timer" : "Start Timer"}
+      </button>
+    </div>
+  );
 }
 
 export default UseEffect;
