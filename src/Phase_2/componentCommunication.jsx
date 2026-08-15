@@ -1,14 +1,23 @@
-function User({name}){
-    return <h2>Hello, {name} </h2>
+function Child({ onMessage }) {
+  return (
+    <button onClick={() => onMessage("Hello from Child!")}>
+      Send Message
+    </button>
+  );
 }
 
-function ComponentCommunication(){
-    return (
-        <div>
-            <h1>component communication</h1>
-            < User name="MOJAHID" />
-        </div>
-    )
+function ComponentCommunication() {
+  function handleMessage(message) {
+    console.log(message);
+  }
+
+  return (
+    <div>
+      <h1>Parent Component</h1>
+
+      <Child onMessage={handleMessage} />
+    </div>
+  );
 }
 
 export default ComponentCommunication;
