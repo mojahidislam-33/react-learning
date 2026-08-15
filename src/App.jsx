@@ -1,10 +1,10 @@
-import UseEffect from "./Phase_2/useEffect"
+import ApiFetching from "./Phase_2/apiFetching";
 
 
 function App(){
   return(
     <div>
-      <UseEffect />
+      <ApiFetching />
     </div>
   )
 
