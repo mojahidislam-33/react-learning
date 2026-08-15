@@ -3,43 +3,49 @@ import { useEffect, useState } from "react";
 function ApiFetching() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error , setError]=useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        if(!response.ok){
+    async function fetchUsers() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+
+        if (!response.ok) {
           throw new Error("Failed to fetch users");
         }
-        return response.json();
-      })
-      .then((data) => {
+
+        const data = await response.json();
+
         setUsers(data);
-        setLoading (false);
-      })
-      .catch(()=>{
-        setError("went something wrong!");
+      } catch (error) {
+        setError(error.message);
+      } finally {
         setLoading(false);
-      });
+      }
+    }
+
+    fetchUsers();
   }, []);
 
   return (
     <div>
       <h1>User List</h1>
-      
+
       {loading ? (
-        <p>Loading ...!</p>
-      ) : error ?(
-          <p>{error} </p>
+        <p>Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
       ) : (
         users.map((user) => (
-        <p key={user.id}>
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-        </p>
-      ))
+          <div key={user.id}>
+            <h2>Name :{user.name}</h2>
+            <p>Email: {user.email}</p>
+            <p>City :{user.address.city}</p>
+          </div>
+        ))
       )}
-      
     </div>
   );
 }
