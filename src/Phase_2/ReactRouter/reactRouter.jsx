@@ -8,8 +8,11 @@ import {
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
-import Products from "./Product";
-import ProductDetails from "./ProductDetails";
+
+import ProductsLayout from "./ProductsLayout";
+import AllProducts from "./AllProducts";
+import Electronics from "./Electronics";
+import Clothing from "./Clothing";
 
 function NotFound() {
   return <h1>404 - Page Not Found</h1>;
@@ -18,6 +21,7 @@ function NotFound() {
 function ReactRouter() {
   return (
     <BrowserRouter>
+
       <nav>
         <NavLink to="/">Home</NavLink>
         {" | "}
@@ -31,22 +35,51 @@ function ReactRouter() {
         <NavLink to="/products">Products</NavLink>
       </nav>
 
+      <hr />
+
       <Routes>
+
         <Route path="/" element={<Home />} />
 
-        <Route path="/about" element={<About />} />
-
-        <Route path="/contact" element={<Contact />} />
-
-        <Route path="/products" element={<Products />} />
-
         <Route
-          path="/products/:id"
-          element={<ProductDetails />}
+          path="/about"
+          element={<About />}
         />
 
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
+        {/* Nested Routes */}
+
+        <Route
+          path="/products"
+          element={<ProductsLayout />}
+        >
+          <Route
+            index
+            element={<AllProducts />}
+          />
+
+          <Route
+            path="electronics"
+            element={<Electronics />}
+          />
+
+          <Route
+            path="clothing"
+            element={<Clothing />}
+          />
+        </Route>
+
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+
       </Routes>
+
     </BrowserRouter>
   );
 }
