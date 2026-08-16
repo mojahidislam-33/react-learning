@@ -1,12 +1,7 @@
-import ReactRouter from "./Phase_2/ReactRouter/reactRouter";
+import ContextAPI from "./Phase_2/ContextAPI/contextAPI";
 
-function App(){
-  return(
-    <div>
-      <ReactRouter />
-    </div>
-  )
-
+function App() {
+  return <ContextAPI />;
 }
 
 export default App;
