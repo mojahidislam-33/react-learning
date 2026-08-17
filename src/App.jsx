@@ -1,11 +1,12 @@
-import UseMemo from "./Phase_2/useMemo";
+import UseCallback from "./Phase_2/UseCallback/useCallback";
+
 
 
 
 function App() {
   return(
     <div>
-      <UseMemo/>
+      <UseCallback/>
 
     </div>
   )
