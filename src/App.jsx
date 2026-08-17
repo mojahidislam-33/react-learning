@@ -1,12 +1,9 @@
-import UseCallback from "./Phase_2/UseCallback/useCallback";
-
-
-
+import CustomHooks from "./Phase_2/CustomHooks/customHooks";
 
 function App() {
   return(
     <div>
-      <UseCallback/>
+      <CustomHooks/>
 
     </div>
   )
