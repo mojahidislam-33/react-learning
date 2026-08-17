@@ -6,7 +6,7 @@ function UseRef(){
     function handleClick(){
         countRef.current=countRef.current+1;
         console.log(countRef.current);
-        <h2>Count: {countRef.current} </h2>
+        
     }
 
     return (

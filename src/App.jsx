@@ -1,13 +1,11 @@
-import UseRef from "./Phase_2/UseRef/useRef";
-import UseRefWithDOM from "./Phase_2/UseRef/useRefWithDOM";
-import UseRefWithPreviousCount from "./Phase_2/UseRef/useRefWithPreviousValue";
-import UseRefWithTimer from "./Phase_2/UseRef/useRefWithTimer";
+import UseMemo from "./Phase_2/useMemo";
+
 
 
 function App() {
   return(
     <div>
-      <UseRefWithTimer/>
+      <UseMemo/>
 
     </div>
   )
